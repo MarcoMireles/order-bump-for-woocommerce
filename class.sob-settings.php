@@ -124,7 +124,6 @@ if (!class_exists('SOB_Settings')){
             esc_html__('After billing details','sob'),
             esc_html__('Before payment methods','sob'),
             esc_html__('Before order review table','sob'),
-            esc_html__('Before the checkout button','sob'),
           ),
           'label_for' => 'sob_where_display',
         )

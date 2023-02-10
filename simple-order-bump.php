@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Simple Order Bump
- * Plugin URI: https://marcode.site/plugin/bubble-chat/
+ * Plugin URI: https://marcode.site/plugin/simple-order-bump/
  * Description: Create simples order bumps
  * Version: 1
  * Requires at least: 5.6
@@ -52,6 +52,8 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
       $SOB_View = new SOB_View();
       add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);
       add_action('admin_enqueue_scripts', array($this,'register_admin_scripts'), 999);
+      add_action('plugin_row_meta', array($this,'filter_plugin_row_meta'),10,4);
+
 
     }
 
@@ -103,6 +105,16 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
           wp_enqueue_media();
         }
       }
+    }
+
+    public function filter_plugin_row_meta( $links_array, $plugin_file_name, $plugin_data, $status )
+    {
+
+      if (strpos($plugin_file_name, basename(__FILE__))) {
+        // You can still use `array_unshift()` to add links at the beginning.
+        $links_array[] = '<a href="https://paypal.me/marcodeoficial?country.x=MX&locale.x=es_XC">Donate 🍺</a>';
+      }
+      return $links_array;
     }
 
     /**

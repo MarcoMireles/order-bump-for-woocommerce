@@ -9,10 +9,8 @@ if (!class_exists('SOB_View')){
           add_action( 'woocommerce_after_checkout_billing_form', array($this,'display_sob') );
         }elseif ($whereDisplay == 'Before payment methods'){
           add_action( 'woocommerce_review_order_before_payment', array($this,'display_sob') );
-        }else if($whereDisplay == 'Before order review table'){
-          add_action( 'woocommerce_checkout_before_order_review', array($this,'display_sob') );
         }else{
-          add_action( 'woocommerce_review_order_before_submit', array($this,'display_sob') );
+          add_action( 'woocommerce_checkout_before_order_review', array($this,'display_sob') );
         }
       }
 
