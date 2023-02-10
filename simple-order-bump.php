@@ -53,7 +53,6 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
       add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);
       add_action('admin_enqueue_scripts', array($this,'register_admin_scripts'), 999);
 
-
     }
 
     public function define_constants(){
@@ -70,7 +69,7 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
         'manage_options',
         'simple_order_bump_admin',
         array($this,'simple_order_bump_settings_page'),
-        SOB_URL.'/assets/img/order.png',
+        SOB_URL.'/assets/img/order.svg',
         25
       );
     }
@@ -93,7 +92,7 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
 
     public function register_admin_scripts($hook){
       if( $hook == 'toplevel_page_simple_order_bump_admin'){
-//        wp_enqueue_style( 'wa-bubble-admin', WA_BUBBLE_URL . 'assets/css/admin.css',array(),WA_BUBBLE_VERSION,'all' );
+        wp_enqueue_style( 'sob-backend-css', SOB_URL . 'assets/css/backend.css',array(),SOB_VERSION,'all' );
         wp_enqueue_style( 'select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',array(),SOB_VERSION,'all' );
         wp_register_style('font-poppins','https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap',array(),SOB_VERSION,'all');
 

@@ -1,28 +1,25 @@
 jQuery(document).ready(function($) {
 
- var sobProduct= $('.sob_input_product');
-
- sobProduct.on(
-     'click',
-     function (){
-         var product = $(this).attr('product-id');
-         var ajaxurl = $(this).attr('data-ajax');
-         console.log(product);
-         jQuery.ajax({
-             url: ajaxurl,
-             type: 'post',
-             data: {
-                 action: 'add_product_to_cart',
-                 product:product
-                 // Agrega aquí tus datos adicionales
-             },
-             success: function( response ) {
-                 console.log( response );
-                 $('body').trigger('update_checkout');
-                 // Actualiza dinámicamente el contenido del carrito
-                 // location.reload();
-             }
-         });
-     }
- );
+    $('.sob_input_product').on('click', function () {
+        var product = $(this).attr('product-id');
+        var ajaxurl = $(this).data('ajax');
+        var security = $(this).data('nonce');
+        var chkAction = $(this).is(":checked");
+        jQuery.ajax({
+            url: ajaxurl,
+            type: 'post',
+            data: {
+                action: 'add_product_to_cart',
+                product:product,
+                security:security,
+                chkAction: chkAction
+            },
+            success: function( response ) {
+                console.log( response );
+                if(response.success){
+                    $('body').trigger('update_checkout');
+                }
+            }
+        });
+    });
 });
