@@ -9,7 +9,16 @@
 }
 
 #sob-container {
-  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 35px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  padding: 10px;
 }
 #sob-container .sob-box-product {
   position: relative;
@@ -22,7 +31,6 @@
 #sob-container .sob-box-product .sob-content {
   border: 2px dashed #BE1E2C;
   padding: 25px 15px;
-  margin-bottom: 20px;
 }
 #sob-container .sob-box-product .sob-content .sob-add-to-cart {
   display: flex;

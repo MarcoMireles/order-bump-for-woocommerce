@@ -9,7 +9,16 @@ $rojo2: #f84c58;
   margin: 0px !important;
 }
 #sob-container{
-  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 35px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  text-align: left;
+  padding: 10px;
   .sob-box-product{
     position: relative;
     padding: 10px;
@@ -20,7 +29,6 @@ $rojo2: #f84c58;
     .sob-content{
       border:2px dashed $rojo;
       padding:25px 15px;
-      margin-bottom: 20px;
       .sob-add-to-cart{
         display: flex;
         margin-bottom: 15px;

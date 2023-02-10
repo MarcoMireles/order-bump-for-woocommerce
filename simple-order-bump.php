@@ -45,6 +45,9 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
       require_once (SOB_PATH . 'class.sob-settings.php');
       $SOB_Settings = new SOB_Settings();
 
+      require_once (SOB_PATH . 'class.ajax-add-to-cart.php');
+      $Ajax_Add_To_Cart = new Ajax_Add_To_Cart();
+
       require_once (SOB_PATH . 'class.sob.php');
       $SOB_View = new SOB_View();
       add_action('wp_enqueue_scripts',array($this,'register_scripts'),999);

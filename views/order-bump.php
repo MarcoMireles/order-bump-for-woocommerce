@@ -18,13 +18,12 @@ if ( $product ) {
 ?>
   <div id="sob-container">
     <div class="sob-box-product ">
-      <h3 class="dummy"> </h3>
+      <div class="title">
+        <h3 class="sob-title"><?php echo $impressive_title;?></h3>
+      </div>
       <div class="sob-content">
-        <div class="title">
-          <h3 class="sob-title"><?php echo $impressive_title;?></h3>
-        </div>
         <div class="sob-add-to-cart">
-          <input type="checkbox" id="orderbump-<?php echo $product_id;?>" />
+          <input type="checkbox" data-ajax="<?php echo admin_url('admin-ajax.php'); ?>" class="sob_input_product" product-id="<?php echo $product_id;?>" id="orderbump-<?php echo $product_id;?>" />
           <label for="orderbump-<?php echo $product_id;?>"><?php echo $text_add_to_cart . $product_price;?></label>
         </div>
         <div class="sob-product">
@@ -39,5 +38,15 @@ if ( $product ) {
       </div>
     </div>
   </div>
-<?php }?>
+<?php }
+
+foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+  echo $cart_item['product_id'] . '<br>';
+//              if ( $cart_item['product_id'] == $productID ) {
+//                $product_in_cart = true;
+//                break;
+//              }
+}
+
+?>
 
