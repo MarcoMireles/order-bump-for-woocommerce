@@ -3,8 +3,8 @@ if (!class_exists('SOB_View')){
   class SOB_View{
     public function __construct(){
 
-      $whereDisplay=SOB_Settings::$sob_options['sob_where_display'];
-      if (SOB_Settings::$sob_options['sob_active_sob'] == 'Active'){
+      $whereDisplay = sanitize_text_field( SOB_Settings::$sob_options['sob_where_display'] );
+      if ( sanitize_text_field( SOB_Settings::$sob_options['sob_active_sob'] ) == 'Active'){
         if ($whereDisplay == 'After billing details'){
           add_action( 'woocommerce_after_checkout_billing_form', array($this,'display_sob') );
         }elseif ($whereDisplay == 'Before payment methods'){
@@ -17,9 +17,9 @@ if (!class_exists('SOB_View')){
     }
 
     public function display_sob(){
-      require (SOB_PATH . 'views/order-bump.php');
-      wp_enqueue_style('sob-main-css');
-      wp_enqueue_script('sob-main-js');
+      require_once ( SOB_PATH . 'views/order-bump.php' );
+      wp_enqueue_style( 'sob-main-css' );
+      wp_enqueue_script( 'sob-main-js' );
 //      sob_options();
     }
   }

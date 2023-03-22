@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     console.log( '  before click' );
     var sob= $('.sob_input_product');
-    sob.addEventListener('click', function () {
+    sob.on('click', function () {
         console.log( 'Click' );
 
         var product = $(this).attr('product-id');

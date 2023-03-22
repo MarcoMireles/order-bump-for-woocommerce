@@ -11,6 +11,7 @@ if (!class_exists('SOB_Settings')){
       register_setting(
         'sob_group',
         'sob_options',
+        array($this,'sob_validate')
       );
 
 //      array($this,'sob_validate')
@@ -206,6 +207,20 @@ if (!class_exists('SOB_Settings')){
         <?php endforeach; ?>
       </select>
       <?php
+    }
+    public function sob_validate( $input ){
+      $new_input = array();
+      foreach( $input as $key => $value ){
+        switch ($key){
+          case 'sob_product_description':
+            $new_input[$key] = sanitize_textarea_field( $value );
+            break;
+          default:
+            $new_input[$key] = sanitize_text_field( $value );
+            break;
+        }
+      }
+      return $new_input;
     }
 
   }//END CLASS SOB
