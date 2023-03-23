@@ -95,11 +95,11 @@ if( !class_exists( 'SIMPLE_ORDER_BUMP' )){
     public function register_admin_scripts($hook){
       if( $hook == 'toplevel_page_simple_order_bump_admin'){
         wp_enqueue_style( 'sob-backend-css', SOB_URL . 'assets/css/backend.css',array(),SOB_VERSION,'all' );
-        wp_enqueue_style( 'select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',array(),SOB_VERSION,'all' );
+        wp_enqueue_style( 'select2-css', SOB_URL .'vendor/css/select2.css',array(),SOB_VERSION,'all' );
         wp_register_style('font-poppins','https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap',array(),SOB_VERSION,'all');
 
         wp_enqueue_script('sob_adminjs', SOB_URL .'vendor/js/style.js', array('select2-js'), SOB_VERSION, true );
-        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array(), SOB_VERSION, false );
+        wp_enqueue_script('select2-js', SOB_URL .'vendor/js/select2.js', array(), SOB_VERSION, false );
 
         if ( ! did_action( 'wp_enqueue_media' ) ) {
           wp_enqueue_media();
